@@ -24,7 +24,7 @@ def part_1():
             elif inst[0] == "toggle":
                 lights ^= l_temp
 
-    return lights
+    print("Part 1: " + str(len(lights)))
 
 def part_2():
     lights = [[0 for j in range(1000)] for i in range(1000)]
@@ -43,7 +43,7 @@ def part_2():
 
     brightness = sum([sum(row) for row in lights])
 
-    return brightness
+    print("Part 2: " + str(brightness))
 
-print("Lights on: " + str(len(part_1())))
-print("Total brightness: " + str(part_2()))
+part_1()
+part_2()

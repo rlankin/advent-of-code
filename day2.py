@@ -11,7 +11,7 @@ def part_1():
             # Add in extra slack (area of smallest side)
             total += dim[0] * dim[1]
 
-    return total
+    print("Part 1: " + str(total))
 
 def part_2():
     total = 0
@@ -26,7 +26,7 @@ def part_2():
             # Add in amount for bow
             total += dim[0] * dim[1] * dim[2]
 
-    return total
+    print("Part 2: " + str(total))
 
-print("(Part 1) Total paper: " + str(part_1()) + " sq ft")
-print("(Part 2) Total ribbon: " + str(part_2()) + " ft")
+part_1()
+part_2()

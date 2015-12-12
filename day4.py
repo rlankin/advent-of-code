@@ -9,8 +9,10 @@ def part_1():
         m.update(key + str(n).encode())
         digest = m.hexdigest()
         if digest[:5] == "00000":
-            return n
+            break
         n += 1
+
+    print("Part 1: " + str(n))
 
 def part_2():
     n = 1
@@ -19,8 +21,10 @@ def part_2():
         m.update(key + str(n).encode())
         digest = m.hexdigest()
         if digest[:6] == "000000":
-            return n
+            break
         n += 1
 
-print("Lowest valid number ('00000'): " + str(part_1()))
-print("Lowest valid number ('000000'): " + str(part_2()))
+    print("Part 2: " + str(n))
+
+part_1()
+part_2()

@@ -44,7 +44,7 @@ def evaluate(wire):
     return value
 
 def part_1():
-    return evaluate("a")
+    print("Part 1: " + str(evaluate("a")))
 
 def part_2():
     """Wire b is manually set to the answer from part 1 because I'm too lazy to
@@ -52,7 +52,7 @@ def part_2():
     parts 1 and 2 cannot be run at the same time.
     """
     instructions["b"] = 46065
-    return evaluate("a")
+    print("Part 2: " + str(evaluate("a")))
 
-print("Wire a (part 1): " + str(part_1()))
-#print("Wire a (part 2): " + str(part_2()))
+#part_1()
+part_2()

@@ -33,7 +33,7 @@ def part_2():
     for city in unvisited:
         get_path_length(0, city, [c for c in unvisited if c != city], path_lengths)
 
-    print("Part 1: " + str(max(path_lengths)))
+    print("Part 2: " + str(max(path_lengths)))
 
 part_1()
 part_2()

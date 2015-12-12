@@ -1,4 +1,4 @@
-vowels = ["a", "e", "i", "o", "u"]
+VOWELS = ("a", "e", "i", "o", "u")
 
 def part_1():
     nice_count = 0
@@ -11,7 +11,7 @@ def part_1():
 
             for i, c in enumerate(s):
                 # Count the vowels
-                if c in vowels:
+                if c in VOWELS:
                     v_count += 1
 
                 if i > 0:
@@ -27,7 +27,7 @@ def part_1():
             if not naughty_seq and double_let and v_count >= 3:
                 nice_count += 1
 
-    return nice_count
+    print("Part 1: " + str(nice_count))
 
 def part_2():
     nice_count = 0
@@ -51,7 +51,7 @@ def part_2():
                     nice_count += 1
                     break
 
-    return nice_count
+    print("Part 2: " + str(nice_count))
 
-print("Nice strings (part 1): " + str(part_1()))
-print("Nice strings (part 2): " + str(part_2()))
+part_1()
+part_2()

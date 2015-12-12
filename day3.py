@@ -21,7 +21,7 @@ def part_1():
 
             houses.add((loc[0], loc[1]))
 
-    return len(houses)
+    print("Part 1: " + str(len(houses)))
 
 def part_2():
     houses = set()
@@ -52,7 +52,7 @@ def part_2():
 
             s_move = not s_move
 
-    return len(houses)
+    print("Part 2: " + str(len(houses)))
 
-print("Houses visited (Santa): " + str(part_1()))
-print("Houses visited (Santa + Robo-Santa): " + str(part_2()))
+part_1()
+part_2()

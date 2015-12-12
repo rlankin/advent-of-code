@@ -9,7 +9,7 @@ def part_1():
 
             floor += 1 if direction == "(" else -1
 
-    return floor
+    print("Part 1: " + str(floor))
 
 def part_2():
     floor = 0
@@ -27,7 +27,7 @@ def part_2():
             if floor == -1:
                 break
 
-    return count
+    print("Part 2: " + str(count))
 
-print("(Part 1) Final floor: " + str(part_1()))
-print("(Part 2) Position of first basement move: " + str(part_2()))
+part_1()
+part_2()

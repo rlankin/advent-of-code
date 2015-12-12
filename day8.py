@@ -24,7 +24,7 @@ def part_1():
         for s in f:
             net_characters += get_net_characters(s)
 
-    return net_characters
+    print("Part 1: " + str(net_characters))
 
 def part_2():
     net_characters = 0
@@ -34,7 +34,7 @@ def part_2():
             s_encode = "\"" + s.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
             net_characters += len(s_encode) - len(s)
 
-    return net_characters
+    print("Part 2: " + str(net_characters))
 
-print("Net characters (part 1): " + str(part_1()))
-print("Net characters (part 2): " + str(part_2()))
+part_1()
+part_2()
