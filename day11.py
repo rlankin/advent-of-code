@@ -15,11 +15,6 @@ def is_valid(password):
     # Detect consecutive runs of characters ("abc", "xyz", etc)
     run_found = any([True for c in range(2, len(password)) if is_run(password[c - 2:c + 1])])
 
-    '''
-    if password == [ord("a"), ord("b"), ord("c"), ord("d"), ord("f"), ord("f"), ord("a"), ord("a")]:
-        print("{0} {1} {2}".format(all_valid_chars, two_pairs, run_found))
-    '''
-
     return all_valid_chars and two_pairs and run_found
 
 def increment(password):
