@@ -1,15 +1,10 @@
 from functools import reduce
 
-#ingredients = {"Butterscotch": (-1, -2, 6, 3, 8), "Cinnamon": (2, 3, -2, -1, 3)}
-#ingredients = [["Butterscotch", (-1, -2, 6, 3, 8)], ["Cinnamon", (2, 3, -2, -1, 3)]]
-
 # Read ingredients from day15_input.py
-# TODO: Use regex?
 ingredients = []
 with open("input/day15_input.txt") as f:
     for ingredient in f:
         parsed = ingredient.rstrip().split(" ")
-        #ingredients[parsed[0][:-1]] = (int(parsed[2][:-1]), int(parsed[4][:-1]), int(parsed[6][:-1]), int(parsed[8][:-1]), int(parsed[10]))
         ingredients.append([parsed[0][:-1], (int(parsed[2][:-1]), int(parsed[4][:-1]), int(parsed[6][:-1]), int(parsed[8][:-1]), int(parsed[10]))])
 
 def get_score_1(ing, scores, tbsp):
@@ -62,5 +57,5 @@ def part_2():
     score = get_score_2(ingredients, [0, 0, 0, 0, 0], 0)
     print("Part 2: " + str(score))
 
-#part_1()
+part_1()
 part_2()
