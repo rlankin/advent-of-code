@@ -17,7 +17,6 @@ def get_code(row, col):
             if r_i == row and c_i == col:
                 return code
 
-            #print("({0}, {1}) = {2}".format(r_i, c_i, code))
             r_i -= 1
             c_i += 1
 
