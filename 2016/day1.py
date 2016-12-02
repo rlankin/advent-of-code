@@ -33,7 +33,6 @@ def part_2():
         found = False
 
         for step in f.read().split(', '):
-        #for step in ['R8', 'R4', 'R4', 'R8']:
             heading = get_new_heading(heading, step[0])
             distance = int(step[1:])
 
