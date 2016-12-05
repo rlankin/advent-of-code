@@ -5,17 +5,9 @@ def is_real_room(name, checksum):
     for letter in name.replace('-', ''):
         hist[letter] = hist[letter] + 1 if letter in hist else 1
 
-    sorted_hist = [(k, hist[k]) for k in sorted(hist, key=hist.get, reverse=True)]
-
-    sort_complete = False
-    while not sort_complete:
-        sort_complete = True
-
-        for i in range(0, len(sorted_hist) - 1):
-            if sorted_hist[i][1] == sorted_hist[i + 1][1] \
-                    and sorted_hist[i][0] > sorted_hist[i + 1][0]:
-                sorted_hist[i], sorted_hist[i + 1] = sorted_hist[i + 1], sorted_hist[i]
-                sort_complete = False
+    sorted_hist = [(h, hist[h]) for h in hist]
+    sorted_hist.sort(key = lambda h: h[0])
+    sorted_hist.sort(key = lambda h: h[1], reverse = True)
 
     return ''.join([letter[0] for letter in sorted_hist])[:5] == checksum
 
