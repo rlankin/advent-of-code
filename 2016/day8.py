@@ -2,18 +2,20 @@ def draw_rect(screen, x, y):
     for r in range(y):
         screen[r][:x] = [1] * x
 
-def rotate_row(screen, row, distance):
+def rotate_list(l, distance):
     for i in range(distance):
-        p = screen[row].pop()
-        screen[row].insert(0, p)
+        p = l.pop()
+        l.insert(0, p)
+
+def rotate_row(screen, row, distance):
+    rotate_list(screen[row], distance)
 
 def rotate_column(screen, column, distance):
-    for i in range(distance):
-        temp = screen[-1][column]
-        for r in range(len(screen)):
-            temp2 = screen[r][column]
-            screen[r][column] = temp
-            temp = temp2
+    col_pixels = [row[column] for row in screen]
+    rotate_list(col_pixels, distance)
+
+    for i, row in enumerate(screen):
+        row[column] = col_pixels[i]
 
 def print_screen(screen):
     for row in screen:
