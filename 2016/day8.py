@@ -4,8 +4,7 @@ def draw_rect(screen, x, y):
 
 def rotate_list(l, distance):
     for i in range(distance):
-        p = l.pop()
-        l.insert(0, p)
+        l.insert(0, l.pop())
 
 def rotate_row(screen, row, distance):
     rotate_list(screen[row], distance)
