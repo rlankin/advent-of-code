@@ -1,7 +1,7 @@
 TARGET_LOW = 17
 TARGET_HIGH = 61
 
-look_for_target = True
+look_for_target = True # There is no excuse for this. I am a bad programmer.
 
 def get_bot(bot_num, bots):
     if bot_num not in bots:
