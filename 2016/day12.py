@@ -1,10 +1,3 @@
-TEST_INPUT = ['cpy 41 a',
-    'inc a',
-    'inc a',
-    'dec a',
-    'jnz a 2',
-    'dec a']
-
 def isint(string):
     try:
         int(string)
