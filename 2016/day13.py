@@ -24,7 +24,7 @@ def expand_maze(maze, step):
         for y, row in enumerate(maze):
             row.append(calculate_space(step[0], y))
 
-def move(path, maze, step_totals):
+def path_to_destination(path, maze, step_totals):
     step = path[-1]
 
     expand_maze(maze, step)
@@ -41,25 +41,25 @@ def move(path, maze, step_totals):
 
     # Move up
     path.append((step[0], step[1] - 1))
-    move(path, maze, step_totals)
+    path_to_destination(path, maze, step_totals)
     path.pop()
 
     # Move right
     path.append((step[0] + 1, step[1]))
-    move(path, maze, step_totals)
+    path_to_destination(path, maze, step_totals)
     path.pop()
 
     # Move down
     path.append((step[0], step[1] + 1))
-    move(path, maze, step_totals)
+    path_to_destination(path, maze, step_totals)
     path.pop()
 
     # Move left
     path.append((step[0] - 1, step[1]))
-    move(path, maze, step_totals)
+    path_to_destination(path, maze, step_totals)
     path.pop()
 
-def move_2(path, maze, locations):
+def count_locations(path, maze, locations):
     step = path[-1]
 
     expand_maze(maze, step)
@@ -74,22 +74,22 @@ def move_2(path, maze, locations):
 
     # Move up
     path.append((step[0], step[1] - 1))
-    move_2(path, maze, locations)
+    count_locations(path, maze, locations)
     path.pop()
 
     # Move right
     path.append((step[0] + 1, step[1]))
-    move_2(path, maze, locations)
+    count_locations(path, maze, locations)
     path.pop()
 
     # Move down
     path.append((step[0], step[1] + 1))
-    move_2(path, maze, locations)
+    count_locations(path, maze, locations)
     path.pop()
 
     # Move left
     path.append((step[0] - 1, step[1]))
-    move_2(path, maze, locations)
+    count_locations(path, maze, locations)
     path.pop()
 
 def part_1():
@@ -101,7 +101,7 @@ def part_1():
             maze[y][x] = calculate_space(x, y)
 
     step_totals = []
-    move([(1, 1)], maze, step_totals)
+    path_to_destination([(1, 1)], maze, step_totals)
 
     print('Part 1: {}'.format(min(step_totals)))
 
@@ -114,7 +114,7 @@ def part_2():
             maze[y][x] = calculate_space(x, y)
 
     locations = set()
-    move_2([(1, 1)], maze, locations)
+    count_locations([(1, 1)], maze, locations)
 
     print('Part 2: {}'.format(len(locations)))
 
