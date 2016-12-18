@@ -1,14 +1,6 @@
-# TEST_INPUT = '.^^.^.^^^^'
 FIRST_ROW = '.^^.^^^..^.^..^.^^.^^^^.^^.^^...^..^...^^^..^^...^..^^^^^^..^.^^^..^.^^^^.^^^.^...^^^.^^.^^^.^.^^.^.'
 
-# TODO: Simplify expression? Boolean algebra? Some other trickery?
 def get_tile(left, center, right):
-    """
-        Its left and center tiles are traps, but its right tile is not.
-        Its center and right tiles are traps, but its left tile is not.
-        Only its left tile is a trap.
-        Only its right tile is a trap.
-    """
     is_trap = (left == '^' and center == '^' and right == '.') \
         or (left == '.' and center == '^' and right == '^') \
         or (left == '^' and center == '.' and right == '.') \
