@@ -19,21 +19,6 @@ def get_open_doors(passcode, path):
 
     return open_doors
 
-def at_destination(path, destination):
-    position = [0, 0]
-
-    for d in path:
-        if d == 'U':
-            position[1] -= 1
-        elif d == 'D':
-            position[1] += 1
-        elif d == 'L':
-            position[0] -= 1
-        elif d == 'R':
-            position[0] += 1
-
-    return position == destination
-
 def get_paths(x, y, path):
     if [x, y] == DESTINATION:
         return [path]
