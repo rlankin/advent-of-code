@@ -9,31 +9,26 @@ def get_tile(left, center, right):
 
 def get_next_row(row):
     next_row = ''
-
     for i in range(len(row)):
         next_row += get_tile(row[i - 1] if i > 0 else '.', row[i], row[i + 1] if i < len(row) - 1 else '.')
 
     return next_row
 
-def part_1():
+def count_safe_tiles(total_rows):
     room = [FIRST_ROW]
-    safe_tiles = sum([1 for tile in room[0] if tile == '.'])
+    safe_tiles = room[-1].count('.')
 
-    for i in range(39):
+    for i in range(total_rows - 1):
         room.append(get_next_row(room[-1]))
-        safe_tiles += sum([1 for tile in room[-1] if tile == '.'])
+        safe_tiles += room[-1].count('.')
 
-    print('Part 1: {}'.format(safe_tiles))
+    return safe_tiles
+
+def part_1():
+    print('Part 1: {}'.format(count_safe_tiles(40)))
 
 def part_2():
-    room = [FIRST_ROW]
-    safe_tiles = sum([1 for tile in room[0] if tile == '.'])
-
-    for i in range(399999):
-        room.append(get_next_row(room[-1]))
-        safe_tiles += sum([1 for tile in room[-1] if tile == '.'])
-
-    print('Part 2: {}'.format(safe_tiles))
+    print('Part 2: {}'.format(count_safe_tiles(400000)))
 
 part_1()
 part_2()
