@@ -15,17 +15,18 @@ class TreeNode:
             self.total_weight = self.weight + sum(c.get_total_weight() for c in self.children)
         return self.total_weight
 
-def find_unbalanced_program(program):
+def calc_balance_weight(program):
     if len(program.children) == 0:
         return
 
     for c in program.children:
-        p = find_unbalanced_program(c)
+        p = calc_balance_weight(c)
         if p is not None:
             return p
 
-    if not all(c.get_total_weight() == program.children[0].get_total_weight() for c in program.children):
-        return program
+        diff = c.get_total_weight() - program.children[0].get_total_weight()
+        if diff != 0:
+            return c.weight - diff
 
 programs = {}
 with open('input/day7_input', 'r') as f:
@@ -43,8 +44,4 @@ with open('input/day7_input', 'r') as f:
 bottom = next(p for n, p in programs.items() if p.parent is None)
 
 print('Part 1: {}'.format(bottom.name))
-
-print('Part 2:')
-unbalanced = find_unbalanced_program(bottom)
-for c in unbalanced.children:
-    print('{} ({}) -- {}'.format(c.name, c.weight, c.get_total_weight()))
+print('Part 2: {}'.format(calc_balance_weight(bottom)))
