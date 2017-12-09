@@ -8,9 +8,7 @@ garbage_chars = 0
 
 i = 0
 while i < len(stream):
-    if stream[i] == '!':
-        i += 1
-    elif stream[i] == '<':
+    if stream[i] == '<':
         while i < len(stream):
             i += 1
             if stream[i] == '!':
