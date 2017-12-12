@@ -2,7 +2,8 @@ def find_group(programs, program, group):
     group |= {program}
     for p in programs[program]:
         if p not in group:
-            find_group(programs, p, group)
+            group |= find_group(programs, p, group)
+    return group
 
 programs = {}
 with open('input/day12_input', 'r') as f:
@@ -13,9 +14,7 @@ with open('input/day12_input', 'r') as f:
 groups = []
 for p in programs:
     if not any(p in g for g in groups):
-        group = set()
-        find_group(programs, p, group)
-        groups.append(group)
+        groups.append(find_group(programs, p, set()))
 
 print('Part 1: {}'.format([len(g) for g in groups if 0 in g][0]))
 print('Part 2: {}'.format(len(groups)))
