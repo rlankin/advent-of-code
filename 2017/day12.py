@@ -10,10 +10,6 @@ with open('input/day12_input', 'r') as f:
         p = program.strip().split('<->')
         programs[int(p[0])] = [int(pipe) for pipe in p[1].split(',')]
 
-group = set()
-find_group(programs, 0, group)
-print('Part 1: {}'.format(len(group)))
-
 groups = []
 for p in programs:
     if not any(p in g for g in groups):
@@ -21,4 +17,5 @@ for p in programs:
         find_group(programs, p, group)
         groups.append(group)
 
+print('Part 1: {}'.format([len(g) for g in groups if 0 in g][0]))
 print('Part 2: {}'.format(len(groups)))
