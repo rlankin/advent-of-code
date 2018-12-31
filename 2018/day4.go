@@ -18,7 +18,11 @@ type event struct {
 func main() {
 	guards := getGuardData()
 
-	// TODO: Parallelize with goroutines+channels?
+	part1(guards)
+	part2(guards)
+}
+
+func part1(guards map[int][]time.Time) {
 	var maxSleepTime, maxSleepGuardID, mostCommonMin int
 	for guardID, sleepMins := range guards {
 		if len(sleepMins) > maxSleepTime {
@@ -28,9 +32,10 @@ func main() {
 	}
 
 	fmt.Printf("Part 1: %d\n", maxSleepGuardID*mostCommonMin)
+}
 
-	maxSleepTime = 0
-	mostCommonMin = 0
+func part2(guards map[int][]time.Time) {
+	var maxSleepTime, maxSleepGuardID, mostCommonMin int
 	for guardID, sleepMins := range guards {
 		min, c := getMostCommonMinute(sleepMins)
 		if c > maxSleepTime {
